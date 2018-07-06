@@ -6,16 +6,20 @@
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-  <div class="container">
+  <div class="header row">
     <h1>Pictweet</h1>
-    @forelse ($tweets as $tweet)
-    <div class="tweet-wrapper">
-      <img src="{{ $tweet->image }}" class="tweet-image"><br>
-      <p>{{ $tweet->content }}</p>
+  </div>
+  <div class="content row">
+    <div class="tweets">
+      @forelse ($tweets as $tweet)
+      <div class="tweet-wrapper">
+        <img src="{{ $tweet->image }}" class="tweet-image"><br>
+        <p>{{ $tweet->content }}</p>
+      </div>
+      @empty
+      <p>最初のTweetを投稿してみましょう！！</p>
+      @endforelse
     </div>
-    @empty
-    <p>最初のTweetを投稿してみましょう！！</p>
-    @endforelse
   </div>
 </body>
 </html>
