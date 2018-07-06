@@ -7,18 +7,20 @@
 </head>
 <body>
   <div class="header row">
-    <h1>Pictweet</h1>
+    <h1 class="header-logo">Pictweet</h1>
   </div>
-  <div class="content row">
-    <div class="tweets">
-      @forelse ($tweets as $tweet)
-      <div class="tweet-wrapper">
-        <img src="{{ $tweet->image }}" class="tweet-image"><br>
-        <p>{{ $tweet->content }}</p>
+  <div class="content-wrapper">
+    <div class="content row">
+      <div class="tweets">
+        @forelse ($tweets as $tweet)
+        <div class="tweet-wrapper">
+          <img src="{{ $tweet->image }}" class="tweet-image"><br>
+          <p>{{ $tweet->content }}</p>
+        </div>
+        @empty
+        <p>最初のTweetを投稿してみましょう！！</p>
+        @endforelse
       </div>
-      @empty
-      <p>最初のTweetを投稿してみましょう！！</p>
-      @endforelse
     </div>
   </div>
 </body>
