@@ -12,5 +12,8 @@
 */
 
 Route::get('/', 'TweetsController@index');
-Route::get('/tweets/{id}', 'TweetsController@show');
+Route::get('/tweets/{id}', 'TweetsController@show')->where('id', '[0-9]+');
+Route::get('/tweets/create', 'TweetsController@create');
+Route::post('/tweets', 'TweetsController@store');
+
 

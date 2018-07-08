@@ -7,9 +7,9 @@
 </head>
 <body>
   <div class="header row">
-    <h1 class="header-logo">
-      <a href="/">Pictweet</a>
-    </h1>
+    <a href="/" class="header-logo">Pictweet</a>
+    <a href="{{ url('/tweets/create') }}" class="header-btn">投稿する</a>
+    <div class="clear"></div>
   </div>
   <div class="content-wrapper">
     <div class="content row">

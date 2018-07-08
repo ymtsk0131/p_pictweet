@@ -53,11 +53,15 @@ table {
 
 /*共通設定*/
 h1 {
+  font-size: 32px;
+}
+
+h2 {
   font-size: 24px;
 }
 
 
-/*トップページ*/
+/*共通ヘッダー*/
 
 .header-wrapper {
   border-bottom: 1px solid #d8d8d8;
@@ -69,7 +73,25 @@ h1 {
 
 .header-logo {
   font-family: "Unica One";
+  font-size: 28px;
+  line-height: 40px;
+  float: left;
 }
+
+.header-btn {
+  float: right;
+  font-size: 16px;
+  font-weight: bold;
+  padding: 10px;
+  border: 2px solid #57c3e9;
+  color: #57c3e9;
+}
+
+.clear {
+  clear: both;
+}
+
+/*共通コンテンツ部分*/
 
 .content-wrapper {
   background-color: #f5f5f3;
@@ -77,7 +99,7 @@ h1 {
 }
 
 .content {
-
+  background-color: #FFF;
 }
 
 .row {
@@ -86,11 +108,48 @@ h1 {
   width: 660px;
 }
 
+/*ツィート表示*/
+
 .tweet-wrapper {
   width: 100%;
-  /*margin: 20px 0;*/
 }
 
 .tweet-image {
   width: 100%;
 }
+
+/*ツィート投稿*/
+
+.tweet-post {
+  width: 100%;
+  padding: 40px 20px;
+}
+
+.tweet-post h2{
+  margin-bottom: 20px;
+  text-align: center;
+  color: #666666;
+}
+
+.tweet-post input, textarea{
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+
+.tweet-post textarea {
+  height: 200px;
+}
+
+.btn-green{
+  color: #FFF;
+  background-color: #57c3e9;
+  border: none;
+  font-size: 24px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+
+
