@@ -23,6 +23,11 @@ class TweetsController extends Controller
     }
 
     public function store(Request $request) {
+      $this->validate($request, [
+        'name' => 'required|min:3',
+        'image' => 'required',
+        'content' => 'required'
+      ]);
       $tweet = new Tweet();
       $tweet->image = $request->image;
       $tweet->content = $request->content;
