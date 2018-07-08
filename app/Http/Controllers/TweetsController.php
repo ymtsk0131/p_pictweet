@@ -14,4 +14,9 @@ class TweetsController extends Controller
       // dd($tweets->Toarray());
       return view('tweets.index', ['tweets' => $tweets]);
     }
+
+    public function show($id) {
+      $tweet = Tweet::findOrFail($id);
+      return view('tweets.show')->with('tweet', $tweet);
+    }
 }

@@ -1,14 +1,10 @@
 @extends('layouts.application')
 
 @section('content')
-@forelse ($tweets as $tweet)
-<a href="/tweets/{{ $tweet->id }}">
+<div class="tweets">
   <div class="tweet-wrapper">
     <img src="{{ $tweet->image }}" class="tweet-image"><br>
     <p>{{ $tweet->content }}</p>
   </div>
-</a>
-@empty
-<p>最初のTweetを投稿してみましょう！！</p>
-@endforelse
+</div>
 @endsection
