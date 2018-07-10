@@ -2,13 +2,20 @@
 
 @section('content')
 @forelse ($tweets as $tweet)
-<a href="/tweets/{{ $tweet->id }}">
-  <div class="tweet-wrapper">
-    <p>{{ $tweet->name }}さん</p>
-    <img src="{{ $tweet->image }}" class="tweet-image"><br>
-    <p>{{ $tweet->content }}</p>
-  </div>
-</a>
+<div class="tweet-wrapper">
+  <p>
+    {{ $tweet->name }}さん
+    <a href="{{ action('TweetsController@edit', $tweet) }}">
+      [編集]
+    </a>
+  </p>
+  <a href="{{ action('TweetsController@show', $tweet) }}">
+    <img src="{{ $tweet->image }}" class="tweet-image">
+  </a>
+  <p>
+    {{ $tweet->content }}
+  </p>
+</div>
 @empty
 <p>最初のTweetを投稿してみましょう！！</p>
 @endforelse

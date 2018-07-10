@@ -12,8 +12,10 @@
 */
 
 Route::get('/', 'TweetsController@index');
-Route::get('/tweets/{id}', 'TweetsController@show')->where('id', '[0-9]+');
 Route::get('/tweets/create', 'TweetsController@create');
+Route::get('/tweets/{tweet}', 'TweetsController@show');
 Route::post('/tweets', 'TweetsController@store');
+Route::get('/tweets/{tweet}/edit', 'TweetsController@edit');
+Route::patch('/tweets/{tweet}', 'TweetsController@update');
 
 
