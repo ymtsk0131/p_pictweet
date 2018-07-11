@@ -42,4 +42,9 @@ class TweetsController extends Controller
       $tweet->save();
       return redirect('/');
     }
+
+    public function destroy(Tweet $tweet) {
+      $tweet->delete();
+      return redirect('/');
+    }
 }

@@ -17,5 +17,6 @@ Route::get('/tweets/{tweet}', 'TweetsController@show');
 Route::post('/tweets', 'TweetsController@store');
 Route::get('/tweets/{tweet}/edit', 'TweetsController@edit');
 Route::patch('/tweets/{tweet}', 'TweetsController@update');
+Route::delete('/tweets/{tweet}', 'TweetsController@destroy');
 
 
