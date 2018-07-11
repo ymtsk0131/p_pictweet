@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Tweet;
+use App\Http\Requests\TweetRequest;
 
 class TweetsController extends Controller
 {
@@ -25,12 +26,7 @@ class TweetsController extends Controller
       return view('tweets.edit')->with('tweet', $tweet);
     }
 
-    public function update(Request $request, Tweet $tweet) {
-      $this->validate($request, [
-        'name' => 'required',
-        'image' => 'required',
-        'content' => 'required|max:20'
-      ]);
+    public function update(TweetRequest $request, Tweet $tweet) {
       $tweet->name = $request->name;
       $tweet->image = $request->image;
       $tweet->content = $request->content;
@@ -38,12 +34,7 @@ class TweetsController extends Controller
       return redirect('/');
     }
 
-    public function store(Request $request) {
-      $this->validate($request, [
-        'name' => 'required',
-        'image' => 'required',
-        'content' => 'required|max:20'
-      ]);
+    public function store(TweetRequest $request) {
       $tweet = new Tweet();
       $tweet->name = $request->name;
       $tweet->image = $request->image;
