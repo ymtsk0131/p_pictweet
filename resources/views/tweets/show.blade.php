@@ -9,6 +9,9 @@
       <a href="{{ action('TweetsController@edit', $tweet) }}">
         [編集]
       </a>
+      <a href="{{ action('TweetsController@destroy', $tweet) }}">
+        [削除]
+      </a>
     </p>
     <p>
       {{ $tweet->content }}
@@ -17,6 +20,13 @@
       @forelse ($tweet->comments as $comment)
       <p>
         {{ $comment->name }} ＞ {{ $comment->content }}
+        <a href="#" class="del" data-id="{{ $comment->id }}">
+          [削除]
+        </a>
+        <form method="post" action="{{ action('CommentsController@destroy', [$tweet, $comment]) }}" id="form_{{ $comment->id }}">
+          {{ csrf_field() }}
+          {{ method_field('delete') }}
+        </form>
       </p>
       @empty
       <span>コメントが・・・・・ない！！！</span>
@@ -35,4 +45,5 @@
     </form>
   </div>
 </div>
+<script src="/js/main.js"></script>
 @endsection

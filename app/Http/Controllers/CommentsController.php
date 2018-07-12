@@ -21,4 +21,9 @@ class CommentsController extends Controller
     $tweet->comments()->save($comment);
     return redirect()->action('TweetsController@show', $tweet);
   }
+
+  public function destroy(Tweet $tweet, Comment $comment) {
+    $comment->delete();
+    return redirect()->back();
+  }
 }
