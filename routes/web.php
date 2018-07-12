@@ -18,5 +18,6 @@ Route::post('/tweets', 'TweetsController@store');
 Route::get('/tweets/{tweet}/edit', 'TweetsController@edit');
 Route::patch('/tweets/{tweet}', 'TweetsController@update');
 Route::delete('/tweets/{tweet}', 'TweetsController@destroy');
+Route::post('/tweets/{tweet}/comments', 'CommentsController@store');
 
 
