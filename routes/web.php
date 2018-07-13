@@ -22,3 +22,7 @@ Route::post('/tweets/{tweet}/comments', 'CommentsController@store');
 Route::delete('/tweets/{tweet}/comments/{comment}', 'CommentsController@destroy');
 
 
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
