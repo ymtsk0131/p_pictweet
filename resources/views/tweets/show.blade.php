@@ -5,7 +5,7 @@
   <div class="tweet-wrapper">
     <img src="{{ $tweet->image }}" class="tweet-image"><br>
     <p>
-      {{ $tweet->name }}さん
+      {{ $tweet->user->name }}さん
       <a href="{{ action('TweetsController@edit', $tweet) }}">
         [編集]
       </a>
@@ -19,7 +19,7 @@
     <h2>コメント</h2>
       @forelse ($tweet->comments as $comment)
       <p>
-        {{ $comment->name }} ＞ {{ $comment->content }}
+        {{ $comment->user->name }} ＞ {{ $comment->content }}
         <a href="#" class="del" data-id="{{ $comment->id }}">
           [削除]
         </a>
