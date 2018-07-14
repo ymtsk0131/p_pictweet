@@ -3,22 +3,25 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use App\Tweet;
 use App\Comment;
 
-class CommentsController extends Controller
-{
-    //
+class CommentsController extends Controller {
+
+  public function __construct() {
+      $this->middleware('auth');
+  }
+
   public function store(Request $request, Tweet $tweet) {
     $this->validate($request, [
-      'name' => 'required',
       'content' => 'required',
     ]);
-    $comment = new Comment([
-      'name' => $request->name,
-      'content' => $request->content
-    ]);
-    $tweet->comments()->save($comment);
+    $comment = new Comment;
+    $comment->content = $request->content;
+    $comment->user_id = Auth::id();
+    $comment->tweet_id = $tweet->id;
+    $comment->save();
     return redirect()->action('TweetsController@show', $tweet);
   }
 

@@ -3,7 +3,7 @@
 @section('content')
 @forelse ($tweets as $tweet)
 <div class="tweet-wrapper">
-  {{ $tweet->name }}さん
+  {{ $tweet->user->name }}さん
   <a href="{{ action('TweetsController@edit', $tweet) }}">
     [編集]
   </a>

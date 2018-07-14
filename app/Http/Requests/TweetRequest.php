@@ -25,15 +25,16 @@ class TweetRequest extends FormRequest
     {
         return [
             //
-          'name' => 'required',
           'image' => 'required',
-          'content' => 'required|max:20'
+          'content' => 'required|max:50'
         ];
     }
 
     public function messages() {
         return [
-            'name.required' => '名前は必須です！！'
+            'image.required' => '画像がなきゃ意味がない！！！',
+            'content.required' => '説明文を頂けると幸いです。',
+            'content.max' => 'うーん・・・ちょっと長いかな（ヒント：50文字以内）'
         ];
     }
 }

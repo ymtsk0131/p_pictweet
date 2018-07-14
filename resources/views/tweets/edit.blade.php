@@ -6,10 +6,6 @@
   <form method="post" action="{{ url('/tweets', $tweet->id) }}">
     {{ csrf_field() }}
     {{ method_field('patch') }}
-    @if ($errors->has('name'))
-    <span class="error">{{ $errors->first('name')}}</span>
-    @endif
-    <input type="text" name="name" placeholder="your name" value="{{ old('name', $tweet->name)}}">
     @if ($errors->has('image'))
     <span class="error">{{ $errors->first('image')}}</span>
     @endif
