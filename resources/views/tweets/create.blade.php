@@ -5,10 +5,6 @@
   <h2>投稿する</h2>
   <form method="post" action="{{ url('/tweets') }}">
     {{ csrf_field() }}
-    @if ($errors->has('name'))
-    <span class="error">{{ $errors->first('name')}}</span>
-    @endif
-    <input type="text" name="name" placeholder="your name" value="{{ old('name')}}">
     @if ($errors->has('image'))
     <span class="error">{{ $errors->first('image')}}</span>
     @endif

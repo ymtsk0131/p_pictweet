@@ -28,9 +28,9 @@ class TweetsController extends Controller
 
     public function store(TweetRequest $request) {
       $tweet = new Tweet();
-      $tweet->name = $request->name;
       $tweet->image = $request->image;
       $tweet->content = $request->content;
+      $tweet->user_id = Auth::id();
       $tweet->save();
       return redirect('/');
     }
@@ -40,7 +40,6 @@ class TweetsController extends Controller
     }
 
     public function update(TweetRequest $request, Tweet $tweet) {
-      $tweet->name = $request->name;
       $tweet->image = $request->image;
       $tweet->content = $request->content;
       $tweet->save();

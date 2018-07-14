@@ -33,10 +33,6 @@
       @endforelse
     <form method="post" action="{{ action('CommentsController@store', $tweet) }}">
       {{ csrf_field() }}
-      <input type="text" name="name" placeholder="なまえ" value="{{ old('name') }}">
-      @if($errors->has('name'))
-      <span class='error'>{{ $errors->first('name') }}</span>
-      @endif
       <input type="text" name="content" placeholder="コメントをどうぞ！" value="{{ old('content') }}">
       @if($errors->has('content'))
       <span class='error'>{{ $errors->first('content') }}</span>
