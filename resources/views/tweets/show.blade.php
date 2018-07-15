@@ -14,6 +14,15 @@
       </a>
     </p>
     <p>
+      LIKE数：{{ $tweet->likes->count() }}
+      @if ($tweet->likes->where('user_id', Auth::id())->isEmpty())
+        <a href="#" onclick="event.preventDefault(); document.getElementById('like').submit();">LIKEするよ</a>
+        <form id="like" action="{{ action('LikesController@store', $tweet) }}" method="POST" style="display:none;">@csrf</form>
+      @else
+        LIKEしたよ
+      @endif
+    </p>
+    <p>
       {{ $tweet->content }}
     </p>
     <h2>コメント</h2>
