@@ -19,7 +19,11 @@ class TweetsController extends Controller
     }
 
     public function show(Tweet $tweet) {
-      return view('tweets.show')->with('tweet', $tweet);
+      $like = $tweet->likes->where('user_id', Auth::id())->first();
+      return view('tweets.show')->with([
+        'tweet' => $tweet,
+        'like'  => $like,
+      ]);
     }
 
     public function create() {
