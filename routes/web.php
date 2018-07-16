@@ -21,6 +21,7 @@ Route::delete('/tweets/{tweet}', 'TweetsController@destroy');
 Route::post('/tweets/{tweet}/comments', 'CommentsController@store');
 Route::delete('/tweets/{tweet}/comments/{comment}', 'CommentsController@destroy');
 Route::post('/tweets/{tweet}/likes', 'LikesController@store');
+Route::delete('/tweets/{tweet}/likes/{like}', 'LikesController@destroy');
 
 
 

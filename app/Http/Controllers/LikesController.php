@@ -21,4 +21,9 @@ class LikesController extends Controller
       $like->save();
       return redirect()->back();
     }
+
+    public function destroy(Tweet $tweet, Like $like) {
+      $like->delete();
+      return redirect()->back();
+    }
 }

@@ -16,10 +16,15 @@
     <p>
       LIKE数：{{ $tweet->likes->count() }}
       @if ($tweet->likes->where('user_id', Auth::id())->isEmpty())
-        <a href="#" onclick="event.preventDefault(); document.getElementById('like').submit();">LIKEするよ</a>
-        <form id="like" action="{{ action('LikesController@store', $tweet) }}" method="POST" style="display:none;">@csrf</form>
+        <a href="#" onclick="event.preventDefault(); document.getElementById('add-like').submit();">LIKEするよ</a>
+        <form id="add-like" action="{{ action('LikesController@store', $tweet) }}" method="POST" style="display:none;">@csrf</form>
       @else
-        LIKEしたよ
+        {{ $like = $tweet->likes->where('user_id', Auth::id())->first() }}
+        <a href="#" onclick="event.preventDefault(); document.getElementById('delete-like').submit();">LIKEやめるよ</a>
+        <form id="delete-like" action="{{ action('LikesController@destroy', [$tweet, $like]) }}" method="POST" style="display:none;">
+          {{ csrf_field() }}
+          {{ method_field('delete') }}
+        </form>
       @endif
     </p>
     <p>
