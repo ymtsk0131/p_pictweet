@@ -3,9 +3,9 @@
 @section('content')
 <div class="tweets">
   <div class="tweet-wrapper">
-    <img src="{{ $tweet->image }}" class="tweet-image"><br>
     <p>
-      {{ $tweet->user->name }}さん
+      投稿者：{{ $tweet->user->name }}
+      ({{ $tweet->created_at }})
       <a href="{{ action('TweetsController@edit', $tweet) }}">
         [編集]
       </a>
@@ -13,6 +13,10 @@
         [削除]
       </a>
     </p>
+    <p>
+      {{ $tweet->content }}
+    </p>
+    <img src="{{ $tweet->image }}" class="tweet-image"><br>
     <p>
       LIKE数：{{ $tweet->likes->count() }}
       @if ($like)
@@ -28,10 +32,7 @@
         </form>
       @endif
     </p>
-    <p>
-      {{ $tweet->content }}
-    </p>
-    <h2>コメント</h2>
+    <h3>コメント</h3>
       @forelse ($tweet->comments as $comment)
       <p>
         {{ $comment->user->name }} ＞ {{ $comment->content }}

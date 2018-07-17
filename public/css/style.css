@@ -54,10 +54,17 @@ table {
 /*共通設定*/
 h1 {
   font-size: 32px;
+  margin-bottom: 10px;
 }
 
 h2 {
   font-size: 24px;
+  margin-bottom: 5px;
+}
+
+h3 {
+  font-size: 18px;
+  margin-bottom: 5px;
 }
 
 
@@ -113,6 +120,11 @@ h2 {
 
 .tweet-wrapper {
   width: 100%;
+  margin-bottom: 30px;
+}
+
+.tweet-wrapper p {
+  padding: 5px;
 }
 
 .tweet-image {
