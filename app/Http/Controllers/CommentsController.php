@@ -26,7 +26,12 @@ class CommentsController extends Controller {
   }
 
   public function destroy(Tweet $tweet, Comment $comment) {
-    $comment->delete();
-    return redirect()->back();
+    if (Auth::check() && Auth::id() == $comment->user_id) {
+      $comment->delete();
+      return redirect()->back();
+    } else {
+      return redirect()->back();
+    }
+
   }
 }

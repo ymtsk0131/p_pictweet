@@ -6,12 +6,14 @@
     <p>
       投稿者：{{ $tweet->user->name }}
       ({{ $tweet->created_at }})
-      <a href="{{ action('TweetsController@edit', $tweet) }}">
-        [編集]
-      </a>
-      <a href="{{ action('TweetsController@destroy', $tweet) }}">
-        [削除]
-      </a>
+      @if (Auth::id() == $tweet->user_id)
+        <a href="{{ action('TweetsController@edit', $tweet) }}">
+          [編集]
+        </a>
+        <a href="{{ action('TweetsController@destroy', $tweet) }}">
+          [削除]
+        </a>
+      @endif
     </p>
     <p>
       {{ $tweet->content }}
@@ -36,13 +38,15 @@
       @forelse ($tweet->comments as $comment)
       <p>
         {{ $comment->user->name }} ＞ {{ $comment->content }}
-        <a href="#" class="del" data-id="{{ $comment->id }}">
-          [削除]
-        </a>
-        <form method="post" action="{{ action('CommentsController@destroy', [$tweet, $comment]) }}" id="form_{{ $comment->id }}">
-          {{ csrf_field() }}
-          {{ method_field('delete') }}
-        </form>
+        @if (Auth::id() == $comment->user_id)
+          <a href="#" class="del" data-id="{{ $comment->id }}">
+            [削除]
+          </a>
+          <form method="post" action="{{ action('CommentsController@destroy', [$tweet, $comment]) }}" id="form_{{ $comment->id }}">
+            {{ csrf_field() }}
+            {{ method_field('delete') }}
+          </form>
+        @endif
       </p>
       @empty
       <span>コメントが・・・・・ない！！！</span>

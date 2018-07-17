@@ -23,7 +23,11 @@ class LikesController extends Controller
     }
 
     public function destroy(Tweet $tweet, Like $like) {
-      $like->delete();
-      return redirect()->back();
+      if (Auth::check() && Auth::id() == $like->user_id) {
+        $like->delete();
+        return redirect()->back();
+      } else {
+        return redirect()->back();
+      }
     }
 }

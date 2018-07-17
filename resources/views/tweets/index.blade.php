@@ -6,16 +6,18 @@
   <p>
     投稿者：{{ $tweet->user->name }}
     ({{ $tweet->created_at }})
-    <a href="{{ action('TweetsController@edit', $tweet) }}">
-      [編集]
-    </a>
-    <a href="#" data-id="{{ $tweet->id }}" class="del">
-      [削除]
-    </a>
-    <form method="post" action="{{ url('/tweets', $tweet->id) }}" id="form_{{ $tweet->id }}">
-      {{ csrf_field() }}
-      {{ method_field('delete') }}
-    </form>
+    @if (Auth::id() == $tweet->user_id)
+      <a href="{{ action('TweetsController@edit', $tweet) }}">
+        [編集]
+      </a>
+      <a href="#" data-id="{{ $tweet->id }}" class="del">
+        [削除]
+      </a>
+      <form method="post" action="{{ url('/tweets', $tweet->id) }}" id="form_{{ $tweet->id }}">
+        {{ csrf_field() }}
+        {{ method_field('delete') }}
+      </form>
+    @endif
   </p>
   <p>
     {{ $tweet->content }}
