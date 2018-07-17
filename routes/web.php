@@ -23,8 +23,4 @@ Route::delete('/tweets/{tweet}/comments/{comment}', 'CommentsController@destroy'
 Route::post('/tweets/{tweet}/likes', 'LikesController@store');
 Route::delete('/tweets/{tweet}/likes/{like}', 'LikesController@destroy');
 
-
-
 Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
