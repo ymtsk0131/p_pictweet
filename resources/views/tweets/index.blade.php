@@ -1,6 +1,10 @@
 @extends('layouts.application')
 
 @section('content')
+<div class="sort-buttons">
+  <a class="sort-button" href="{{ action('TweetsController@index', ['sort' => 'newest']) }}">Newest</a>
+  <a class="sort-button" href="{{ action('TweetsController@index', ['sort' => 'popular']) }}">Popular</a>
+</div>
 @forelse ($tweets as $tweet)
 <div class="tweet-wrapper">
   <p>

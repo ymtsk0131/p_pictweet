@@ -118,6 +118,17 @@ h3 {
 
 /*ツィート表示*/
 
+.sort-buttons {
+  padding: 20px 0;
+}
+
+.sort-button {
+  padding: 5px 10px;
+  margin-right: 5px;
+  border: solid 1px;
+  text-decoration: none;
+}
+
 .tweet-wrapper {
   width: 100%;
   margin-bottom: 30px;

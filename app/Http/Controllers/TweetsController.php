@@ -13,8 +13,15 @@ class TweetsController extends Controller
       $this->middleware('auth');
     }
 
-    public function index() {
-      $tweets = Tweet::latest()->get();
+    public function index(Request $request) {
+      $sort = $request->sort;
+      if ($sort == 'newest') {
+        $tweets = Tweet::latest()->get();
+      } elseif ($sort == 'popular') {
+        $tweets = Tweet::withCount('likes')->orderBy('likes_count', 'desc')->get();
+      } else {
+        $tweets = Tweet::all();
+      }
       return view('tweets.index')->with('tweets', $tweets);
     }
 
