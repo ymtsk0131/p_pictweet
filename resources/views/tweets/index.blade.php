@@ -2,8 +2,8 @@
 
 @section('content')
 <div class="sort-buttons">
-  <a href="{{ action('TweetsController@index', ['sort' => 'newest']) }}">Newest</a>
-  <a href="{{ action('TweetsController@index', ['sort' => 'popular']) }}">Popular</a>
+  <a class="sort-button" href="{{ action('TweetsController@index', ['sort' => 'newest']) }}">Newest</a>
+  <a class="sort-button" href="{{ action('TweetsController@index', ['sort' => 'popular']) }}">Popular</a>
 </div>
 @forelse ($tweets as $tweet)
 <div class="tweet-wrapper">
